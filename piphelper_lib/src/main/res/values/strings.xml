@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">piphelper_lib</string>
+    <item name="pip" type="id" />
+</resources>
