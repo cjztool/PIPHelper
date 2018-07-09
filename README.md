@@ -11,7 +11,7 @@ A convenient tool to realize picture in picture mode of playing video. check per
 ```xml
 <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 ```
-2. as follow: 调用如下
+2. as follow: 调用如下
 ```java
         PIPHelper.get() // get instance of PIPHelper. 单例
                 //.reMeetDismissFloatOne() //dismiss pip when reEnter 再次进入播放页面时消失掉画中画
@@ -26,7 +26,7 @@ A convenient tool to realize picture in picture mode of playing video. check per
                     }
                 })
                 .initTarget(playerView) // which view will be floated , enter pip mode.指定要进入画中画模式的view
-                .floatView();//enter pip 悬浮指定视图
+                .floatView();//enter pip 悬浮指定视图
 ```
 
 # More improvements coming... 更多改进欢迎pr
