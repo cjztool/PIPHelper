@@ -44,15 +44,6 @@ public class DragView extends FrameLayout {
 
 
     @Override
-    public boolean onInterceptTouchEvent(MotionEvent event) {
-        if (!PIPHelper.get().isDraggable) {
-            return false;
-        } else {
-            return true;
-        }
-    }
-
-    @Override
     public boolean onTouchEvent(MotionEvent event) {
         Log.e("cjz", "currentX:" +
                 currentX +
@@ -66,6 +57,9 @@ public class DragView extends FrameLayout {
                 "originY:" +
                 originY);
 
+        if(!PIPHelper.get().isDraggable){
+            return false;
+        }
 
         int action = event.getAction();
         switch (action) {
