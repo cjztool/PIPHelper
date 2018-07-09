@@ -34,11 +34,9 @@ public class DetailActivity extends AppCompatActivity {
                 .onBackKeyUpAutoFloat()
                 .onEnterPIPListener(new PIPHelper.EnterPIPListener() {
                     @Override
-                    public void onEnter() {
+                    public void onEnter(View floatRootView) {
 
                     }
-
-
                 })
                 .initTarget(playerView);
 

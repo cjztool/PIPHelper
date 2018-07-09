@@ -167,7 +167,7 @@ public class PIPHelper {
                 container.addView(target, new FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
 
                 if (enterPIPListener != null) {
-                    enterPIPListener.onEnter( );
+                    enterPIPListener.onEnter(container);
                 }
 
                 isFloating = true;
@@ -241,6 +241,6 @@ public class PIPHelper {
 
 
     public interface EnterPIPListener {
-        void onEnter();
+        void onEnter(View floatRootView);
     }
 }
