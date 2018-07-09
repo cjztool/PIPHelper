@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.cjz.pip.R;
+import com.cjz.pip.demo.player.PlayerView;
 import com.cjz.piphelper.PIPHelper;
 
 /**
@@ -14,6 +15,7 @@ import com.cjz.piphelper.PIPHelper;
 public class DetailActivity extends AppCompatActivity {
 
     ImageView imageView;
+    PlayerView playerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,13 +24,23 @@ public class DetailActivity extends AppCompatActivity {
 
         imageView = findViewById(R.id.imageView);
 
+        playerView = findViewById(R.id.player);
+
         PIPHelper.get()
 //                .reMeetDismissFloatOne()
                 .reMeetReplaceNewByFloatOne()
 //                .reMeetDoNothing()
-//                .floatViewDisableDrag()
+                .floatViewDisableDrag()
                 .onBackKeyUpAutoFloat()
-                .initTarget(imageView);
+                .onEnterPIPListener(new PIPHelper.EnterPIPListener() {
+                    @Override
+                    public void onEnter() {
+
+                    }
+
+
+                })
+                .initTarget(playerView);
 
     }
 
@@ -39,6 +51,7 @@ public class DetailActivity extends AppCompatActivity {
     }
 
 
-    public void giveBack(View view) {
+    public void play(View view) {
+        playerView.play();
     }
 }

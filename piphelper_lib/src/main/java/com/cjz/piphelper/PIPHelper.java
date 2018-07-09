@@ -3,10 +3,15 @@ package com.cjz.piphelper;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.PixelFormat;
+import android.graphics.SurfaceTexture;
 import android.os.Build;
 import android.support.v7.app.AlertDialog;
 import android.view.Gravity;
 import android.view.KeyEvent;
+import android.view.Surface;
+import android.view.SurfaceHolder;
+import android.view.SurfaceView;
+import android.view.TextureView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
@@ -126,7 +131,8 @@ public class PIPHelper {
 
         if (autoFloatListener != null) {
             target.setOnKeyListener(autoFloatListener);
-            target.setFocusableInTouchMode(true);
+            target.setFocusableInTouchMode(true);//响应按键事件
+//            target.requestFocus();
         }
     }
 
@@ -159,6 +165,11 @@ public class PIPHelper {
                 DragView container = initFloatContainer(appContext);
                 ((ViewGroup) target.getParent()).removeView(target);
                 container.addView(target, new FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+
+                if (enterPIPListener != null) {
+                    enterPIPListener.onEnter( );
+                }
+
                 isFloating = true;
             }
         }
@@ -192,6 +203,8 @@ public class PIPHelper {
         DragView container = new DragView(context);
         container.init(windowManager, windowManagerLP, targetWidth, targetHeight);
         windowManager.addView(container, windowManagerLP);
+
+//        mSurfaceView = new SurfaceView(context);
         return container;
     }
 
@@ -214,5 +227,20 @@ public class PIPHelper {
     public PIPHelper floatViewDisableDrag() {
         isDraggable = false;
         return pipHelper;
+    }
+
+
+    public PIPHelper onEnterPIPListener(EnterPIPListener listener) {
+        enterPIPListener = listener;
+        return pipHelper;
+    }
+
+    EnterPIPListener enterPIPListener;
+
+//    SurfaceView mSurfaceView;
+
+
+    public interface EnterPIPListener {
+        void onEnter();
     }
 }

@@ -42,6 +42,16 @@ public class DragView extends FrameLayout {
         sHeight = Utils.getScreenHeight(mContext, false);
     }
 
+
+    @Override
+    public boolean onInterceptTouchEvent(MotionEvent event) {
+        if (!PIPHelper.get().isDraggable) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         Log.e("cjz", "currentX:" +
@@ -56,9 +66,6 @@ public class DragView extends FrameLayout {
                 "originY:" +
                 originY);
 
-        if (!PIPHelper.get().isDraggable) {
-            return super.onTouchEvent(event);
-        }
 
         int action = event.getAction();
         switch (action) {
