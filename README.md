@@ -4,6 +4,9 @@ A convenient tool to realize picture in picture mode of playing video. check per
 
 一个实现画中画模式下播放视频的辅助工具， 运行时自动申请悬浮窗权限。
 
+[github]: https://github.com/cjztool/PIPHelper/blob/master/pre.gif "preview"
+
+
 # Usage 用法
 
 1. Declear permission 声明悬浮窗权限
