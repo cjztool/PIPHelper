@@ -14,7 +14,7 @@ A convenient tool to realize picture in picture mode of playing video. check per
 2. as follow: 调用如下
 ```java
         PIPHelper.get() // get instance of PIPHelper. 单例
-                //.reMeetDismissFloatOne() //dismiss pip when reEnter 再次进入播放页面时消失掉画中画
+                //.reMeetDismissFloatOne() //dismiss pip when reEnter 再次进入播放页面时消失掉画中画
                 .reMeetReplaceNewByFloatOne() // replace by float 再次进入时用画中画替换新的
                 //.reMeetDoNothing() // do nothing 啥也不干
                 .floatViewDisableDrag() // set pip can not be dragged 悬浮播放后禁止拖拽，默认可以
